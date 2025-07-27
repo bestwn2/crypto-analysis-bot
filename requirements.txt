@@ -1,0 +1,11 @@
+# requirements.txt
+ccxt
+pandas
+pandas-ta
+plotly
+newsapi-python  # بۆ هێنانی هەواڵ
+vaderSentiment  # بۆ شیکاری هەست و سۆز
+requests
+pycoingecko
+streamlit
+python-telegram-bot 

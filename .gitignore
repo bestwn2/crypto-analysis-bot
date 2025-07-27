@@ -1,0 +1,15 @@
+# Virtual Environment
+venv/
+/venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Sensitive configuration files
+config.ini
+.streamlit/secrets.toml
+
+# IDE files
+.idea/
+.vscode/
