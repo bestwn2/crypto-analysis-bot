@@ -50,12 +50,14 @@ class SentimentAnalyzer:
             return 0
 
         except Exception as e:
-            # گۆڕینی شێوازی print کردن بۆ ئەوەی کێشەی encoding چارەسەر بێت
-            error_message = str(e)
-            if 'rateLimited' in error_message:
-                print("⚠️ سنووری بەکارهێنانی NewsAPI تێپەڕیوە.")
-            else:
-                # بەکارهێنانی encode و decode بۆ سەلامەتی زیاتر لەکاتی print
-                safe_error_message = error_message.encode('utf-8', 'ignore').decode('utf-8')
+            # --- گۆڕانکاری لێرەدایە ---
+            # کۆن: print(f"❌ هەڵە لە هێنانی هەواڵ بۆ {crypto_name}: {e}")
+            # نوێ: شێوازێکی سەلامەتتر بۆ چاپکردن
+            try:
+                # هەوڵدەدەین بە شێوازی ستاندارد چاپی بکەین
+                print(f"❌ هەڵە لە هێنانی هەواڵ بۆ {crypto_name}: {e}")
+            except UnicodeEncodeError:
+                # ئەگەر شکستی هێنا، نووسە نامۆکان پشتگوێ دەخەین
+                safe_error_message = str(e).encode('ascii', 'ignore').decode('ascii')
                 print(f"❌ هەڵە لە هێنانی هەواڵ بۆ {crypto_name}: {safe_error_message}")
             return 0
